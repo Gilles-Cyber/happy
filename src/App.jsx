@@ -3,6 +3,7 @@ import GalaxyBackground from './components/GalaxyBackground'
 import Fireworks from './components/Fireworks'
 import Confetti from './components/Confetti'
 import Gallery from './components/Gallery'
+import MusicToggle from './components/MusicToggle'
 import './App.css'
 
 const POEM = [
@@ -29,15 +30,26 @@ export default function App() {
   const [opened, setOpened] = useState(false)
   const [showPoem, setShowPoem] = useState(false)
   const [showGallery, setShowGallery] = useState(false)
+  const [finaleShown, setFinaleShown] = useState(false)
+  const [muted, setMuted] = useState(false)
   const fireworksRef = useRef(null)
   const confettiRef = useRef(null)
+  const audioRef = useRef(null)
 
   function handleOpen() {
     setOpened(true)
+    audioRef.current?.play().catch(() => {})
     confettiRef.current?.burst(220)
     fireworksRef.current?.burst(6)
     setTimeout(() => setShowPoem(true), 900)
     setTimeout(() => setShowGallery(true), 900 + POEM.length * 260 + 600)
+  }
+
+  function handleFinale() {
+    setFinaleShown(true)
+    confettiRef.current?.burst(260)
+    fireworksRef.current?.burst(4)
+    setTimeout(() => fireworksRef.current?.spellText('INÈS'), 700)
   }
 
   useEffect(() => {
@@ -53,6 +65,8 @@ export default function App() {
       <GalaxyBackground />
       <Fireworks ref={fireworksRef} />
       <Confetti ref={confettiRef} />
+      <audio ref={audioRef} src="/audio/birthday-song.m4a" loop muted={muted} />
+      {opened && <MusicToggle muted={muted} onToggle={() => setMuted((m) => !m)} />}
 
       {!opened && (
         <div className="envelope-screen">
@@ -91,6 +105,13 @@ export default function App() {
           {showGallery && (
             <footer className="closing">
               <p>Avec tout mon amour, pour la meilleure des best. 💜</p>
+              {!finaleShown ? (
+                <button className="finale-button" onClick={handleFinale}>
+                  ✨ Voir le bouquet final ✨
+                </button>
+              ) : (
+                <p className="closing__finale">Bonne fête, Inès. 🎆</p>
+              )}
             </footer>
           )}
         </main>

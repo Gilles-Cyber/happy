@@ -252,4 +252,56 @@ body {
   color: #ffd6ec;
   opacity: 0;
   animation: fade-in 1.2s ease forwards;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.closing__finale {
+  margin: 0;
+  color: #ffd166;
+  font-size: 1.3rem;
+}
+
+.finale-button {
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  color: #f5edff;
+  background: linear-gradient(90deg, #7b2ff7, #c77dff);
+  border: none;
+  border-radius: 999px;
+  padding: 0.8rem 1.8rem;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(123, 47, 247, 0.45);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.finale-button:hover {
+  transform: translateY(-2px) scale(1.04);
+  box-shadow: 0 12px 30px rgba(199, 125, 255, 0.6);
+}
+
+.music-toggle {
+  position: fixed;
+  top: 1.2rem;
+  right: 1.2rem;
+  z-index: 10;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(30, 12, 60, 0.55);
+  backdrop-filter: blur(6px);
+  font-size: 1.3rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease;
+}
+
+.music-toggle:hover {
+  transform: scale(1.08);
 }
