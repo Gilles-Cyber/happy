@@ -12,9 +12,6 @@ dist
 dist-ssr
 *.local
 
-# Background track kept local-only (avoid publishing copyrighted audio to a public repo)
-public/audio/
-
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
