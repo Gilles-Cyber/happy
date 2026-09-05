@@ -65,7 +65,12 @@ export default function App() {
       <GalaxyBackground />
       <Fireworks ref={fireworksRef} />
       <Confetti ref={confettiRef} />
-      <audio ref={audioRef} src="/audio/birthday-song.m4a" loop muted={muted} />
+      <audio
+        ref={audioRef}
+        src={`${import.meta.env.BASE_URL}audio/birthday-song.m4a`}
+        loop
+        muted={muted}
+      />
       {opened && <MusicToggle muted={muted} onToggle={() => setMuted((m) => !m)} />}
 
       {!opened && (

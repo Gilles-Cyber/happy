@@ -1,12 +1,14 @@
 import { useRef, useState } from 'react'
 
+const BASE = import.meta.env.BASE_URL
+
 const PHOTOS = [
-  { src: '/photos/p1.jpg', caption: 'Toujours prête à briller ✨' },
-  { src: '/photos/p2.jpg', caption: 'Ce sourire qui illumine tout' },
-  { src: '/photos/p3.jpg', caption: 'Style et bonne humeur, toujours' },
-  { src: '/photos/p4.jpg', caption: 'Rayonnante, comme d\'habitude' },
-  { src: '/photos/p5.jpg', caption: 'Douceur et naturel' },
-  { src: '/photos/p6.jpg', caption: 'Belle comme une fleur 🌸' },
+  { src: `${BASE}photos/p1.jpg`, caption: 'Toujours prête à briller ✨' },
+  { src: `${BASE}photos/p2.jpg`, caption: 'Ce sourire qui illumine tout' },
+  { src: `${BASE}photos/p3.jpg`, caption: 'Style et bonne humeur, toujours' },
+  { src: `${BASE}photos/p4.jpg`, caption: 'Rayonnante, comme d\'habitude' },
+  { src: `${BASE}photos/p5.jpg`, caption: 'Douceur et naturel' },
+  { src: `${BASE}photos/p6.jpg`, caption: 'Belle comme une fleur 🌸' },
 ]
 
 export default function Gallery({ visible }) {
