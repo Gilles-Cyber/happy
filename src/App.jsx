@@ -110,7 +110,7 @@ export default function App() {
                   ✨ Voir le bouquet final ✨
                 </button>
               ) : (
-                <p className="closing__finale">Bonne fête, Inès. 🎆</p>
+                <p className="closing__finale">Bonne fête, mon cœur. 🎆</p>
               )}
             </footer>
           )}
